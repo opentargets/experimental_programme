@@ -1,10 +1,12 @@
 # Title: List_of_subdir
-# Date: 21 March 2023 
-# Author: Anke Husmann ah38@sanger.ac.uk
+# Date: 5 June 2024 
+# Author: Anke Husmann ah38@sanger.ac.uk OpenTargets
 # Version: 1
-# Description: writes list of subdirectories + path into a text file according to rules
+# Description: writes list of subdirectories + path into a text file
 # -------
 # create list of directories to be run through deconvolution
+# it assumes that the images are organised into subdirectories named by well name
+# it creates a text file: subdir_list.txt for the job array to schedule parallel jobs
 
 import os
 import argparse
@@ -15,12 +17,7 @@ parser.add_argument("--list_wells", type=list, help='list of wells (default = ["
 
 args = parser.parse_args()
 
-# the following directory has two subdirectories with _10minperm and _30Minperm: different times of fixing stains (I think)
-
-# directory = "/lustre/scratch125/humgen/projects/cell_activation_tc/projects/KI67_TEST/2_feature_extraction/data/testset_mito/"
 directory = args.input_dir
-
-# the following list is of wells with good staining: not sure about how to deal with wells, list of 60 wells seems a bit crazy
 
 list_of_wells = args.list_wells
 
